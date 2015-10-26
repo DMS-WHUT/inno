@@ -1,0 +1,46 @@
+/*尾部css*/
+body{
+    font-family:  Arial, sans-serif;
+    font-size: 12px;
+}
+.bottom{
+    margin: 0 auto;
+    width: 1000px;
+    height: 150px;
+    background-color: #333333;
+    color: white;
+    border: 1px solid transparent;
+}
+
+
+.bottom a{
+    color: #FFF;
+    text-decoration: none;
+}
+.bottom a:hover{
+    color: #FFF;
+    text-decoration: underline;
+}
+/*左边部分*/
+.leftPart{
+    margin-top: 30px;
+    margin-left: 20px;
+    border: 1px solid transparent;
+    width: 400px;
+    float: left;
+
+}
+.rightPart{
+    margin-top: 30px;
+    float: right;
+    width: 400px;
+    height: 100px;
+    border: 1px solid transparent;
+}
+.subPart{
+    margin-left: 10px;
+    float: right;
+    width: 120px;
+    height: 90px;
+    border: 1px solid transparent;
+}

@@ -1,0 +1,149 @@
+/*头部css*/
+body{
+    margin: 0;
+    padding: 0;
+    font-family:  Arial, sans-serif;
+    font-size: 12px;
+    color:#333333;
+}
+.top{
+    margin: 0 auto;
+    width: 1000px;
+    height: 140px;
+    border: 1px solid transparent;
+    background: url(../inno/resource/templatemo_top_panel_background.jpg) no-repeat;
+}
+
+.templateContainer{
+    margin-top: 10px;
+    width: 1000px;
+    height: 80px;
+    border: 1px solid transparent;
+
+}
+
+/*依诺维特标题*/
+.siteTitle{
+    margin-top: 35px;
+    margin-left: 10px;
+    width: 350px;
+    height: 40px;
+    float: left;
+    border: 1px solid transparent;
+}
+.siteTitle a{
+    text-decoration: none;
+}
+.siteTitle a span{
+    font-family:  Arial, sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    color: #FFF;
+}
+/*搜索栏*/
+.searchBox{
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 280px;
+    height: 50px;
+    float: left;
+    border: 1px solid transparent;
+}
+.searchBox form{
+    margin: 0;
+    color: white;
+}
+.searchBox form input{
+    margin-top: 8px;
+}
+.searchBox form span{
+    margin-left: 40px;
+}
+#searchField{
+    margin: 5px 5px 0 2px;
+    font-size: 13px;
+    font-variant: normal;
+    height: 20px;
+    width: 200px;
+    border: none;
+}
+#searchButton{
+    background: url(/inno/resource/templatemo_search_button.gif);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    height: 22px;
+    text-align: center;
+    width: 60px;
+    border: none;
+}
+/*显示当前时间*/
+
+.currentTime{
+    margin-top: 30px;
+    width: 230px;
+    height: 60px;
+    float: right;
+    font-weight: bold;
+    color: white;
+    border: 1px solid transparent ;
+}
+
+/*显示账户信息*/
+.account {
+    float:right;
+    width:230px;
+    height:20px;
+
+}
+.bnfa{
+    text-decoration:underline;
+    color:white;
+
+}
+
+#abc{
+    text-decoration:underline;
+    color:white;
+    float:right;
+
+}
+#currentTime{
+    margin-top: 10px;
+    float: right;
+    width: 230px;
+    height: 20px;
+}
+
+/*不同栏目显示*/
+.templatePanel{
+    margin-top: 8px;
+    width: 1000px;
+    height: 37px;
+    background: #750a20 url(/inno/resource/templatemo_menu_bg.gif) repeat-x;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+.templatePanel ul{
+    float: left;
+    width: 800px;
+    list-style: none;
+}
+
+.templatePanel ul li{
+    display: inline;
+}
+
+.templatePanel ul li a{
+    float: left;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+}
+.templatePanel ul li a:hover{
+    color: #FFFF00;;
+}
