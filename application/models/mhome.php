@@ -6,7 +6,7 @@
 		}
 	 public function  get_article()
 	    {
-		  $query = $this->db->query('SELECT * FROM article');
+		  $query = $this->db->query('SELECT * FROM article ORDER BY id DESC');
 		  return $query->result();
 		 }
 	public function   login($username,$password)
