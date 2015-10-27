@@ -35,57 +35,11 @@
 						}	
 								return $array;
 				}
-				
 		}
-	  function object_array($array)
-			{
-  					 if(is_object($array))
-				   {
-   					 $array = (array)$array;
-   					}
-  					 if(is_array($array))
- 				  {
-   						 foreach($array as $key=>$value)
-  						  {
-    							 $array[$key] = object_array($value);
- 				 		  }
- 				  }
-					 
- 		  return $array;
-			}
-
-
-	  function show_object($array){
-			  if(is_array($array))
-			  {
-				$num = count($array);
-				$s=0;
-				for($i=$num;$i>=1;$i--) {
-					$s=$i-1;
-					echo "<pre>";
-
-					print_r($array[$s]);
-					echo "</pre>";
-					
-				}
-					  
-					
-				}		
-
-	  }
-	//		$data['get_artic']= object_array($data['get_artic']);
-
-	  			
 	  
-	 // 		show_object($data['get_artic']);
 
 			
 	  $this->load->view('home',$data);
-	 /* echo "<pre>";
-	  print_r($data['get_artic'][0]);
-	  
-	  echo "</pre>";
-	  */
 	  $this->load->view('footer');
 	
 	 }
