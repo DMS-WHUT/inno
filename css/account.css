@@ -1,0 +1,122 @@
+.account{
+    margin: 0 auto;
+    width: 990px;
+    height: 500px;
+    border: 1px solid transparent;
+}
+.account h1{
+    color: #750a20;
+}
+
+.account_info{
+    width: 990px;
+    height: 200px;
+    border: 1px solid silver;
+}
+
+.account_info img{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 150px ;
+    height: 150px;
+    border: 1px solid silver;
+    float: left;
+}
+#user_name{
+    text-underline-position: below;
+    font-size: 25px;
+    font-weight: bolder;
+    font-family: Arial, sans-serif;
+}
+.account_basic_info{
+    margin-top: 20px;
+    margin-left: 40px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 20px;
+    width: 700px;
+    height: 150px;
+    text-align: left;
+    float: left;
+    border: 1px solid silver;
+}
+.account_basic_info p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: "Microsoft YaHei";
+}
+
+.account_basic_info img{
+    float: right;
+    margin: 0 -15px 0 0;
+    width: 30px;
+    height: 30px;
+    background-color: ghostwhite;
+    visibility: hidden;
+}
+.account_label{
+
+    width: 700px;
+    height: 40px;
+    color: grey;
+
+}
+.account_label span{
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+#personal_label {
+    font-family: Trebuchet MS;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: lighter;
+}
+.account_attr{
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 990px;
+    border: 1px solid silver;
+    height: 200px;
+}
+.account_attr ul{
+    margin-top: 2px;
+    margin-left: -40px;
+    list-style-type: none;
+}
+
+.user_section{
+    padding-top: 10px;
+    width: 194px;
+    height: 40px;
+    margin-left: 3px;
+    float: left;
+    font-size: 18px;
+    font-family: "Microsoft YaHei";
+    background-color: #EEEEEE;
+}
+.detail_attr{
+    width: 985px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+    text-align: left;
+}
+#dongtai{
+    display: block;
+}
+#yinyue{
+    display: none;
+}
+#guanxi{
+    display: none;
+}
+#shoucang{
+    display: none;
+}
+#gengduo{
+    display: none;
+}

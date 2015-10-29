@@ -25,22 +25,21 @@
 
 			}else{
 		 */
-			$query1 = $this->db->query("insert into user value('NULL','$username','$password','$email','$si_time')");
+			$query1 = $this->db->query("insert into user value(NULL,'$username','$password','$email','$si_time')");
 			return $query1;
 		
 	}
 				
-			function show_voice($id_){
-					$query= 	$this->db>query("select * from voice where id_user='.$id_user.'");
+			function show_voice($user){
+					$query= 	$this->db>query("select * from voice where user_name='.$user.'");
 					return $query;
-
-			
-			
-			
-			
 			
 			}
 
+			function show_profile($user){
+					$query = $this->db->query("select * from user where username='.$user.'");
+					return $query;
+			}
 
 
 

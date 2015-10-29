@@ -137,8 +137,21 @@
 
 	 function account(){
 			 $data=array();
-			 $data['page_title']="账户";
-			 $this->load->view('header',$data);
+			 $data['page_title']="个人中心";
+			 $this->load->view('header',$data); 
+			 $this->load->model('mhome');
+			 /*
+			 if(isset($_COOKIE['user'])
+			 {
+					 jjk
+
+			 }
+			  */
+
+
+			 $data['profile']=$this->mhome->show_profile($_COOKIE['user']);
+
+
 
 			 $this->load->view('account',$data);
 			 $this->load->view('footer',$data);

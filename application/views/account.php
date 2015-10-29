@@ -1,6 +1,6 @@
 
 <!--个人中心-->
-
+<center>
     <script>
         function show_edit(){
             var edit_pic=document.getElementById("edit_pic");
@@ -62,28 +62,36 @@
     </script>
     <div class="account">
         <h1>个人中心</h1>
+		<? foreach ($profile as $row ):?>
+<?php if($row->sex=="1")
+			{
+					$gender="男";
+			}else{
+					$gender="女";
+			}
+?>
         <div class="account_info">
             <img src="/inno/images/touxiang.jpg">
             <div class="account_basic_info" onmouseover="show_edit()" onmouseout="hide_edit()">
-                <span id="user_name">张加加</span>
+			<span id="user_name"><? echo $realname; ?></span>
                 <img src="/inno/images/edit.png" id="edit_pic" onclick="edit_info()">
                 <p>
-                    <span>湖北武汉</span>
+				<span><? $row->city?></span>
                     <span>&nbsp;|&nbsp;</span>
-                    <span>20</span>
+					<span><? $row->age ?></span>
                     <span>&nbsp;|&nbsp;</span>
-                    <span>男</span>
+					<span><? echo $gender;?></span>
                     <span>&nbsp;|&nbsp;</span>
-                    <span>1995-12-30</span>
+					<span><? $row->birthday ?></span>
                     <span>&nbsp;|&nbsp;</span>
-                    <span>13148275960</span>
+					<span><? $row->phone ?></span>
                     <span>&nbsp;|&nbsp;</span>
-                    <span>409290014@qq.com</span>
+					<span><? $row->email ?> </span>
                 </p>
                 <hr/>
                 <div class="account_label">
                     <span>个性签名：</span>
-                    <span  id="personal_label">每一个不曾起舞的日子，都是对生命的辜负！</span>
+					<span  id="personal_label"><? $row->signature ?></span>
 
                 </div>
 
@@ -91,6 +99,7 @@
             </div>
 
         </div>
+<? endforeach;?>
         <div class="account_attr">
             <ul id="section_title">
                 <li class="user_section" onclick="change_section('dongtai',this)" style="background-color: white">我的动态</li>
@@ -122,4 +131,4 @@
         </div>
       
 </div>
-
+</center>

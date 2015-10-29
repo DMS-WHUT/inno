@@ -1,5 +1,3 @@
-
-
 <!--piano部分-->
     <div>
         <script src="/inno/js/jquery-2.1.4.min.js"></script>
