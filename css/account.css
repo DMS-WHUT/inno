@@ -1,6 +1,6 @@
 .account{
     margin: 0 auto;
-    width: 1000px;
+    width: 990px;
     height: 500px;
     border: 1px solid transparent;
 }
@@ -9,7 +9,7 @@
 }
 
 .account_info{
-    width: 1000px;
+    width: 990px;
     height: 200px;
     border: 1px solid silver;
 }
@@ -23,6 +23,7 @@
     float: left;
 }
 #user_name{
+    text-underline-position: below;
     font-size: 25px;
     font-weight: bolder;
     font-family: Arial, sans-serif;
@@ -31,6 +32,7 @@
     margin-top: 20px;
     margin-left: 40px;
     padding-left: 20px;
+    padding-top: 10px;
     padding-right: 20px;
     width: 700px;
     height: 150px;
@@ -46,7 +48,7 @@
 
 .account_basic_info img{
     float: right;
-    margin: 5px -15px 0 0;
+    margin: 0 -15px 0 0;
     width: 30px;
     height: 30px;
     background-color: ghostwhite;
@@ -72,8 +74,10 @@
     font-weight: lighter;
 }
 .account_attr{
+    float: left;
     margin-top: 10px;
-    width: 1000px;
+    margin-bottom: 10px;
+    width: 990px;
     border: 1px solid silver;
     height: 200px;
 }
@@ -85,7 +89,7 @@
 
 .user_section{
     padding-top: 10px;
-    width: 196px;
+    width: 194px;
     height: 40px;
     margin-left: 3px;
     float: left;

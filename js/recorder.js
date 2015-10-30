@@ -2,7 +2,7 @@
 (function(global) {
   var Recorder;
 
-  var RECORDED_AUDIO_TYPE = "/inno/voice";
+  var RECORDED_AUDIO_TYPE = "audio/wav";
 
   Recorder = {
     recorder: null,
