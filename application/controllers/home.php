@@ -56,9 +56,14 @@
 			 $data['password']=sha1($_POST['yourpass']);
 			 $this->load->model('mhome');
 			 $data['result']= $this->mhome->login($data['username'],$data['password']);
+		     foreach($data['result'] as $row):
+					 $user_id=$row->id;
+				endforeach;
 			 if($data['result'])
 
 			 { setcookie("user",$data['username'],time()+3600,"/inno/",'localhost');
+			 setcookie("user_id",$user_id,time()+3600,"/inno/",'localhost');
+
 				$url="http:/inno/index.php/home";	
 			 	Header("Location:$url");
 			 }else{

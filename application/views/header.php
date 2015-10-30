@@ -1,8 +1,10 @@
 
 <?php
 		if(isset($_COOKIE['user']))
+				
 		{	$user=$_COOKIE['user'];
 			$check=1;
+
 		}else{$check=0;
 		}
 ?>
