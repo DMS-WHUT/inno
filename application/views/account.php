@@ -71,27 +71,27 @@
 			}
 ?>
         <div class="account_info">
-            <img src="/inno/images/touxiang.jpg">
+		<img src="/inno/images/<?=$row->tx_name?>">
             <div class="account_basic_info" onmouseover="show_edit()" onmouseout="hide_edit()">
-			<span id="user_name"><? echo $realname; ?></span>
+			<span id="user_name"><?=$row->realname?></span>
                 <img src="/inno/images/edit.png" id="edit_pic" onclick="edit_info()">
                 <p>
-				<span><? $row->city?></span>
+				<span><?=$row->city?></span>
                     <span>&nbsp;|&nbsp;</span>
-					<span><? $row->age ?></span>
+					<span><?=$row->age?></span>
                     <span>&nbsp;|&nbsp;</span>
 					<span><? echo $gender;?></span>
                     <span>&nbsp;|&nbsp;</span>
-					<span><? $row->birthday ?></span>
+					<span><?=$row->birthday ?></span>
                     <span>&nbsp;|&nbsp;</span>
-					<span><? $row->phone ?></span>
+					<span></span>
                     <span>&nbsp;|&nbsp;</span>
-					<span><? $row->email ?> </span>
+					<span><?=$row->email ?> </span>
                 </p>
                 <hr/>
                 <div class="account_label">
                     <span>个性签名：</span>
-					<span  id="personal_label"><? $row->signature ?></span>
+					<span  id="personal_label"><?=$row->signature ?></span>
 
                 </div>
 
