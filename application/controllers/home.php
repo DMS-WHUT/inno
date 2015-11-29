@@ -211,22 +211,29 @@
 
 
 
-
+	//个人中心
 
 	 function account(){
 			 $data=array();
 			 $data['page_title']="个人中心";
-			 $this->load->view('header',$data); 
+			 
+
+			 if(isset($_COOKIE['user_id'])){
+
 			 $this->load->model('mhome');
 
+			 $data['profile']=$this->mhome->get_profile($_COOKIE['user_id']);
+			 $data['voices']=$this->mhome->get_voice($_COOKIE['user_id']);
 
-			 $data['profile']=$this->mhome->show_profile($_COOKIE['user_id']);
 
-
-
+		   	 $this->load->view('header',$data); 
 			 $this->load->view('account',$data);
 			 $this->load->view('footer',$data);
 			 
+			 }else{
+				show_404();
+			 }
+
 	 
 	 }
    

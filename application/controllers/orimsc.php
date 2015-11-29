@@ -16,7 +16,7 @@
 	  $data=array();
 	  $data['resourse_css'] = $this->config->item('resourse_css');
 	  $data['page_title'] = "原创音乐";
-	 //	$data['voice']= $this->mhome->show_voice();
+	  $data['voice']= $this->mhome->get_voice();
 
 	  $this->load->view('header',$data);
 	  

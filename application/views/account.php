@@ -71,7 +71,7 @@
 			}
 ?>
         <div class="account_info">
-		<img src="/inno/images/<?=$row->tx_name?>">
+		<img src="/inno/images/<?=$row->photo?>">
             <div class="account_basic_info" onmouseover="show_edit()" onmouseout="hide_edit()">
 			<span id="user_name"><?=$row->realname?></span>
                 <img src="/inno/images/edit.png" id="edit_pic" onclick="edit_info()">
@@ -114,7 +114,18 @@
             </div>
 
             <div class="detail_attr" id="yinyue">
-                <div>暂无音乐</div>
+				<div>
+					<?foreach($voices as $row):?>
+					<br>
+<br>
+<br>
+					<a href="/inno/voice/<?=$row->name?>"><?=$row->name?></a>
+					<?endforeach;?>
+						
+
+
+
+				</div>
             </div>
 
             <div class="detail_attr" id="guanxi">

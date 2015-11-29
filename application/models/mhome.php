@@ -66,14 +66,7 @@
 
 
 
-	//
-			function show_voice($user){
-					$query= 	$this->db>query("select * from voice where user_name='.$user.'"); 
-		   	
-
-					return $query->result();
- 
-			}
+			
 
 		//创建个人信息
 			function profile_new($name,$email,$time)
@@ -95,19 +88,25 @@
 
 
 
+			//取出个人信息
 
-
-			function show_profile($id){
+			function get_profile($id){
 					$query = $this->db->query("select * from profile where id='.$id.'");
-					if(!$query){
-						echo "ERROR!";	
-					}
 					return $query->result();
 		   	} 
 
 
 
-
+			function get_voice($id=FALSE){
+					if($id===FALSE){
+					$query=$this->db->query("select * from voice"); 
+					return $query->result();
+					}else{
+					$query=$this->db->query("select * from voice where user_id='.$id.'");		
+					return $query->result();
+ 
+					}
+			}
 
 
 

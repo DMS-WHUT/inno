@@ -6,7 +6,7 @@
 	border:1px solid #ccc; 
 	margin-top:10px; 
 	margin-bottom:10px;
-	width:200px;
+	width:300px;
 	height:500px;
 }
 .account_mymsc ul li {
@@ -15,6 +15,7 @@
 
 }
 .account_mymsc h2{
+	float:center;
 	padding: 5px 0;
 	font-size: 16px;
 	font-weight: bold;
@@ -62,17 +63,17 @@
 		 <br><br>
 	</div>
 <div class="account_mymsc">
- <h2>我的原创音乐</h2>
+ <h2>原创音乐广场</h2>
 				<!--	<div class="newsbox"><img src="/inno/voice/templatemo_image_12.jpg" alt="image" /><span class="newstitle">News Title 02</span><br />
                         <p>
                         Morbi tristique, risus quis congue pulvinar, nisl nisi commodo diam, a porta nisi ligula ac massa. Vestibulum blandit <a href="#">阅读全文</a>                        </p>
 					</div>-->
                         
                     <ul>
-						<?/* foreach ($get_artic as $row):?>
-						<li><?=anchor("show/contest/".$row->id,$row->title)?></a></li>
-						<? endforeach;*/?>
-                        <li><a href="/inno/voice/123.mp3">whistle</a></li>
+						<? foreach ($voice as $row):?>
+						<li><a href="/inno/voice/<?=$row->name?>"><?=$row->name?></a>-<?=$row->time?></li>
+						<? endforeach;?>
+                        <li><a href="/inno/voice/whistle.mp3">whistle</a></li>
                         <li><a href="#">Lorem ipsum dolor sit amet</a></li>
                         <li><a href="#">Maecenas adipiscing elementum ipsum</a></li>
                         <li><a href="#">Nunc blandit orci sit amet risus</a></li>
