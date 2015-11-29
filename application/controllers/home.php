@@ -59,8 +59,33 @@
 			 if(isset($_POST['yourname'])&&isset($_POST['yourpass']))
 			 {
 			 $data['username']=$_POST['yourname'];
-			 $data['password']=sha1($_POST['yourpass']);
-			 $this->load->model('mhome');
+			 $data['password']=$_POST['yourpass'];
+			 //验证输入
+						 function log_check($username,$pass){
+								//验证邮箱
+										 if(strlen($pass)<6||strlen($pass)>20){
+												return false;
+										}else if(!preg_match('^[a-z0-9_\.\-]^',$pass)){
+												return false;
+										}else if(strlen($username)<6||strlen($username)>20){
+												return false;
+										}else if(!preg_match('^[a-zA-Z0-9_]^',$username)){
+												return false;
+										}else{
+												return true;
+										}
+						}
+			 $data['b']=log_check($data['username'],$data['password']);
+			 if(!$data['b']){
+					 echo "<script>alert('错误的帐号信息')</script>";
+					 echo "<META HTTP-EQUIV='Refresh' CONTENT='0,URL=/inno/index.php/home/log_in'>";
+					 exit;
+			 }
+
+			 $data['password']=sha1($data['password']);
+
+
+						 $this->load->model('mhome');
 			 $data['result']= $this->mhome->login($data['username'],$data['password']);
 		     foreach($data['result'] as $row):
 					 $user_id=$row->id;
@@ -74,7 +99,8 @@
 			 	Header("Location:$url");
 			 }else{
 				echo "<script>alert('密码错误或用户名不存在!')</script>";
-				echo "<META HTTP-EQUIV='Refresh' CONTENT='0;URL=/inno/index.php/home/log_in'>";
+				echo "<META HTTP-EQUIV='Refresh' CONTENT='0,URL=/inno/index.php/home/log_in'>";
+				exit;
 
 			 }
 			 }else{
