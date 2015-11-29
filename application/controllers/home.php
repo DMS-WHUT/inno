@@ -43,12 +43,17 @@
 	  $this->load->view('footer');
 	
 	 }
-	function test(){
-			echo base_url();
-	}
+
+
+
+
+
+
+
+
+
      public function log_in()
 	 {
-				$cokurl='localhost';
 
 			 $data=array();
 			 if(isset($_POST['yourname'])&&isset($_POST['yourpass']))
@@ -186,9 +191,9 @@
 	 }
 	 
 
+	 //登录退出
 	 public function log_out(){
 
-	$cokurl='localhost';
 
 					$data=array();
 			 		if(setcookie('user','',time()-3600,"/inno/")&&setcookie('id','',time()-3600,"/inno/")){
