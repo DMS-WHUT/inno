@@ -51,9 +51,9 @@ $(function () {
         break;
 
       case "permission_panel_closed":
-        FWRecorder.defaultSize();
+      { FWRecorder.defaultSize();
         recorderEl().removeClass("floating");
-        break;
+        break;}
 
       case "microphone_activity":
         $('#activity_level').text(arguments[1]);
@@ -87,7 +87,7 @@ $(function () {
       case "observing_level_stopped":
         $showLevelButton.show();
         $hideLevelButton.hide();
-        $level.css({width: 0});
+        $level.css({width: 10});
         break;
 
       case "playing":
@@ -174,7 +174,7 @@ $(function () {
 
   window.microphonePermission = function () {
     recorderEl().addClass("floating");
-    FWRecorder.showPermissionWindow({permanent: true});
+    FWRecorder.showPermissionWindow({permanent:true});
   };
 
   window.configureMicrophone = function () {

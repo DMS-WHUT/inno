@@ -1,8 +1,8 @@
+
 <!--piano部分-->
-    <div>
         <script src="/inno/js/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="/inno/js/swfobject.js"></script>
-        <script type="text/javascript" src="inno/js/recorder.js"></script>
+        <script type="text/javascript" src="/inno/js/recorder.js"></script>
         <script type="text/javascript" src="/inno/js/main.js"></script>
         <script type="text/javascript" src="/inno/js/piano.js"></script>
         <link rel="stylesheet" href="/inno/css/recorder_style.css">
@@ -192,6 +192,9 @@
 
 
         </style>
+        </head>
+        
+   <div>
         <div class="title">
             <hr/>
             <h1>钢琴演奏</h1>
@@ -281,7 +284,7 @@
                             return str;
                         }
                     </script>
-                    <button class="record_button" onclick="FWRecorder.record('audio', 'audio.wav');" title="Record">
+                    <button class="record_button" id="firstRecorder" title="Record">
                         <img src="/inno/images/record.png" alt="Record"/>
                     </button>
                     <button class="stop_recording_button" onclick="FWRecorder.stopRecording('audio');" title="Stop Recording">
@@ -299,24 +302,7 @@
                     <div class="level"></div>
                 </div>
 
-            <!--    <div id="recorder-audio2" class="control_panel idle">
-                    <button class="record_button" onclick="FWRecorder.record('audio2', 'audio2.wav');" title="Record">
-                        <img src="../inno//inno/images/record.png" alt="Record"/>
-                    </button>
-                    <button class="stop_recording_button" onclick="FWRecorder.stopRecording('audio2');" title="Stop Recording">
-                        <img src="../inno//inno/images/stop.png" alt="Stop Recording"/>
-                    </button>
-                    <button class="play_button" onclick="FWRecorder.playBack('audio2');" title="Play">
-                        <img src="../inno//inno/images/play.png" alt="Play"/>
-                    </button>
-                    <button class="pause_playing_button" onclick="FWRecorder.pausePlayBack('audio2');" title="Pause Playing">
-                        <img src="../inno//inno/images/pause.png" alt="Pause Playing"/>
-                    </button>
-                    <button class="stop_playing_button" onclick="FWRecorder.stopPlayBack();" title="Stop Playing">
-                        <img src="../inno//inno/images/stop.png" alt="Stop Playing"/>
-                    </button>
-                    <div class="level"></div>
-                </div>-->
+
 
                 <div class="details">
                     <button class="show_level" onclick="FWRecorder.observeLevel();">显示声波</button>
@@ -335,13 +321,13 @@
                     <div>上传状态: <span id="upload_status"></span></div>
                 </div>
 
-                <form id="uploadForm" name="uploadForm" action="/inno/upload.php">
+                <form id="uploadForm" name="uploadForm" action="/inno/upload.php" enctye="multipart/form-data">
                     <input name="authenticity_token" value="xxxxx" type="hidden">
                     <input name="upload_file[parent_id]" value="1" type="hidden">
                     <input name="format" value="json" type="hidden">
                 </form>
                 <hr/>
-                <input type="button" onclick="mpConfig()" value="麦克风高级配置">
+                <input type="button" onclick="mpConfig()" value="麦克风高级配置"></input>
             </div>
             <div id="mp_config">
                 <center><h4>麦克风配置</h4><hr/></center>
@@ -402,3 +388,4 @@
 
         </div>
 <!--底部-->
+   

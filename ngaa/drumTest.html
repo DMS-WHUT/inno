@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>drumTest</title>
+
+    <script>
+        document.onkeydown = function(e) {
+            var pressEvent = e || window.event;
+            var keyCode = '';
+            if(pressEvent.keyCode){
+                keyCode = pressEvent.keyCode;
+            }else if(pressEvent.charCode){
+                keyCode = pressEvent.charCode;
+            }else if(pressEvent.which){
+                keyCode = pressEvent.which;
+            }
+
+            switch(keyCode){
+                case 65:
+                {var musicFile='drum/drumA.mp3';
+                    playMusic=new Audio(musicFile);
+                    playMusic.play();
+                    document.getElementById('drumA').style.visibility='visible';
+                    setInterval("document.getElementById('drumA').style.visibility='hidden'",500);
+                    break;}
+                case 83:
+                {var musicFile='drum/drumB.mp3';
+                    playMusic=new Audio(musicFile);
+                    playMusic.play();
+                    document.getElementById('drumB').style.visibility='visible';
+                    setInterval("document.getElementById('drumB').style.visibility='hidden'",500);
+                    break;}
+                case 68:
+                {var musicFile='drum/drumC.mp3';
+                    playMusic=new Audio(musicFile);
+                    playMusic.play();
+                    document.getElementById('drumC').style.visibility='visible';
+                    setInterval("document.getElementById('drumC').style.visibility='hidden'",500);
+                    break;}
+                case 70:
+                {var musicFile='drum/drumD.mp3';
+                    playMusic=new Audio(musicFile);
+                    playMusic.play();
+                    document.getElementById('drumD').style.visibility='visible';
+                    setInterval("document.getElementById('drumD').style.visibility='hidden'",500);
+                    break;}
+                case 71:
+                {var musicFile='drum/drumE.mp3';
+                    playMusic=new Audio(musicFile);
+                    playMusic.play();
+                    document.getElementById('drumE').style.visibility='visible';
+                    setInterval("document.getElementById('drumE').style.visibility='hidden'",500);
+                    break;}
+                case 72:
+                {var musicFile='drum/drumF.mp3';
+                    playMusic=new Audio(musicFile);
+                    playMusic.play();
+                    document.getElementById('drumF').style.visibility='visible';
+                    setInterval("document.getElementById('drumF').style.visibility='hidden'",500);
+                    break;}
+                case 74:
+                {var musicFile='drum/drumG.mp3';
+                    playMusic=new Audio(musicFile);
+                    playMusic.play();
+                    document.getElementById('drumG').style.visibility='visible';
+                    setInterval("document.getElementById('drumG').style.visibility='hidden'",500);
+                    break;}
+
+            }}
+    </script>
+    <style type="text/css">
+        body{
+            background-color: crimson;
+        }
+		
+		 #drumA{
+			 background-image:url(image/asd.png);
+			 background-position:center;
+             background-repeat:no-repeat;
+
+		        margin-left:12px;
+				margin-top:140px;
+				width:96px;
+				height:60px;
+                visibility: hidden;
+                }
+		 #drumB{
+             background-image:url(image/asd.png);
+             background-position:center;
+             margin-left:145px;
+             background-repeat:no-repeat;
+				margin-top:-65px;
+				width:70px;
+				height:55px;
+             visibility: hidden;
+			 }
+		 #drumC{
+             background-image:url(image/asd.png);
+             background-position:center;
+             margin-left:230px;
+             background-repeat:no-repeat;
+				margin-top:-35px;
+				width:80px;
+				height:60px;
+             visibility: hidden;
+			 }
+		 #drumD{
+             background-image:url(image/asd.png);
+             background-position:center;
+             background-repeat:no-repeat;
+             	margin-left: 330px;
+	            margin-top: -130px;
+	            width: 175px;
+	            height: 115px;
+             visibility: hidden;
+			 }
+		 #drumE{ background-image:url(image/asd.png);
+             background-position:center;
+             background-repeat:no-repeat;
+		        margin-left:70px;
+				margin-top:25px;
+				width:90px;
+				height:55px;
+             visibility: hidden;
+			 }
+		 #drumF{
+             background-image:url(image/asd.png);
+             background-position:center;
+             background-repeat:no-repeat;
+		        margin-left:160px;
+				margin-top:8px;
+				width:90px;
+				height:90px;
+             visibility: hidden;
+			 }
+		#drumG{
+            background-image:url(image/asd.png);
+            background-position:center;
+            background-repeat:no-repeat;
+		        margin-left:255px;
+				margin-top:-95px;
+				width:100px;
+				height:70px;
+            visibility: hidden;
+			}
+		 #main{
+	        width: 512px;
+	        height: 512px;
+	        background-image: url(image/ddrum.png);
+	        margin-left: 400px;
+	        margin-top: 100px;
+	        position: fixed;
+}
+    </style>
+</head>
+<body>
+<div id="main">
+<div id="drumA">druma</div>
+<div id="drumB">drumb</div>
+<div id="drumC">drumc</div>
+<div id="drumD">drumd</div>
+<div id="drumE">drume</div>
+<div id="drumF">drumf</div>
+<div id="drumG">drumg</div>
+</div>
+</body>
+</html>

@@ -75,7 +75,7 @@ class CI_Config {
 
 			else
 			{
-				$base_url = 'http://localhost/';
+				$base_url = 'http://www.ourinnovate.com/';
 			}
 
 			$this->set_item('base_url', $base_url);

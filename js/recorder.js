@@ -136,7 +136,7 @@
           Recorder.recorder.permit();
         }
       };
-      setTimeout(permissionCommand, 1);
+      setTimeout(permissionCommand, 100);
     },
 
     configure: function(rate, gain, silenceLevel, silenceTimeout) {

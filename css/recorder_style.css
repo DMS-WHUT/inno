@@ -93,14 +93,12 @@ h1 a {
 
 #recorderApp {
     position: absolute;
-    width: 0;
+    width: 100;
 }
 
 #recorderApp.floating {
-    top: 50%;
+    top: 75%;
     left: 50%;
-    margin-left: -120px;
-    margin-top: -80px;
 }
 
 .control_panel button {
@@ -129,7 +127,7 @@ h1 a {
 .control_panel.playing .play_button,
 .control_panel.playback_paused .stop_recording_button,
 .control_panel.playback_paused .pause_playing_button {
-    display: none;
+    display: true;
 }
 .prompt_info{
     width: 300px;

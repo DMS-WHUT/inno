@@ -48,6 +48,7 @@
 	}
      public function log_in()
 	 {
+				$cokurl='localhost';
 
 			 $data=array();
 			 if(isset($_POST['yourname'])&&isset($_POST['yourpass']))
@@ -61,14 +62,15 @@
 				endforeach;
 			 if($data['result'])
 
-			 { setcookie("user",$data['username'],time()+3600,"/inno/",'localhost');
-			 setcookie("user_id",$user_id,time()+3600,"/inno/",'localhost');
+			 { setcookie("user",$data['username'],time()+3600,"/inno/");
+			 setcookie("user_id",$user_id,time()+3600,"/inno/");
 
 				$url="http:/inno/index.php/home";	
 			 	Header("Location:$url");
 			 }else{
-				echo "密码错误或用户名不存在!";
-				?>	<a href="/inno/index.php/home/log_in"><input type="button" name="test" value="返回"/></a><?php
+				echo "<script>alert('密码错误或用户名不存在!')</script>";
+				echo "<META HTTP-EQUIV='Refresh' CONTENT='0;URL=/inno/index.php/home/log_in'>";
+
 			 }
 			 }else{
 
@@ -92,23 +94,46 @@
 						$data['email']=$_POST['youremail'];
 						$data['si_time']=date('Y-m-d H:i:s');
 						$this->load->model('mhome');
+
+						if($this->mhome->check($data['username']))
+						{
+
+								echo "<script>alert('你已经注册过了')</script>";
+								echo "<META HTTP-EQUIV='Refresh' CONTENT='1;URL=/inno/index.php/home/log_in'>";
+								exit;
+						}
+
 						$data['result']= $this->mhome->sign_up($data['username'],$data['password'],$data['email'],$data['si_time']);
+
 			
-						switch($data['result']){
-						case 0:
+						if(!$data['result']){
 								echo "<script>alert('抱歉,注册失败,请稍后再试.正在跳转......')</script>";
 								echo "<META HTTP-EQUIV='Refresh' CONTENT='2;URL=/inno/index.php/home'>";
-								break;
-						case 1:
+								exit;
+						}else{
+
+
+
+
+								
+								$data['a']=$this->mhome->profile_new($data['username'],$data['si_time']);
+
+								if($data['a']){
 								echo "<script>alert('恭喜你注册成功,马上去登录.')</script>";
 
-							echo "<META HTTP-EQUIV='Refresh' CONTENT='1;URL=/inno/index.php/home/log_in'>";
-								break;
-					/*	case 2:
+								echo "<META HTTP-EQUIV='Refresh' CONTENT='0;URL=/inno/index.php/home/log_in'>";
+							 
+								}else{
+								
+										echo "创建个人信息失败";
 
-								echo "用户名已经注册了,请长重新注册,正在跳转...";
-								echo "<META HTTP-EQUIV='Refresh' CONTENT='2;URL=/inno/index.php/home/sign'>";
-								break;*/
+								
+								}
+							 	
+
+
+
+
 							}
 
 
@@ -123,8 +148,11 @@
 
 	 public function log_out(){
 
+	$cokurl='localhost';
+
 					$data=array();
-			 		if(setcookie('user','',time()-3600,'/inno/',"localhost")){
+			 		if(setcookie('user','',time()-3600,"/inno/")&&setcookie('id','',time()-3600,"/inno/")){
+							
 					 echo "<META HTTP-EQUIV='Refresh' CONTENT='0;URL=/inno/index.php/home'>";
 						}else{
 						echo "<script>alert('退出登录失败!正在返回...')</script>";
@@ -145,16 +173,9 @@
 			 $data['page_title']="个人中心";
 			 $this->load->view('header',$data); 
 			 $this->load->model('mhome');
-			 /*
-			 if(isset($_COOKIE['user'])
-			 {
-					 jjk
-
-			 }
-			  */
 
 
-			 $data['profile']=$this->mhome->show_profile($_COOKIE['user']);
+			 $data['profile']=$this->mhome->show_profile($_COOKIE['user_id']);
 
 
 

@@ -1,10 +1,8 @@
 
 <?php
 		if(isset($_COOKIE['user']))
-				
 		{	$user=$_COOKIE['user'];
 			$check=1;
-
 		}else{$check=0;
 		}
 ?>
@@ -26,7 +24,7 @@
 
 <link href="/inno/css/tabcontent.css" rel="stylesheet" type="text/css" />
 <link href="/inno/css/templatemo_style.css"  rel="stylesheet" type="text/css" />
-  <link href="/inno/css/account.css" rel="stylesheet" type="text/css"/>
+  <link href="/inno/css/account.css" rel="stylesheet" type="text/css">
 
 <link href="/inno/css/orimscfile.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/inno/js/tabcontent.js"></script>
