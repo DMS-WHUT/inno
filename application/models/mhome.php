@@ -76,9 +76,9 @@
 			}
 
 		//创建个人信息
-			function profile_new($name,$time)
+			function profile_new($name,$email,$time)
 			{
-					$query = $this->db->query("insert into profile(username) values('$name')");
+					$query = $this->db->query("insert into profile(username,email,edittime) values('$name','$email','$time')");
 					return $query;
 	
 			}

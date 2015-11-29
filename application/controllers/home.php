@@ -116,7 +116,7 @@
 
 
 								
-								$data['a']=$this->mhome->profile_new($data['username'],$data['si_time']);
+								$data['a']=$this->mhome->profile_new($data['username'],$data['email'],$data['si_time']);
 
 								if($data['a']){
 								echo "<script>alert('恭喜你注册成功,马上去登录.')</script>";
