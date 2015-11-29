@@ -72,9 +72,9 @@
   <script type="text/javascript">
 	    function checkna(){
 			na=form1.yourname.value;
-		  	if( na.length <1 || na.length >12)  
+		  	if( na.length <6 || na.length >20)  
 	  		{  	
-	  			divname.innerHTML='<font class="tips_false">长度是1~12个字符</font>';
+	  			divname.innerHTML='<font class="tips_false">长度是6~20个字符</font>';
 	  		     
 	  		}else{  
 	  		    divname.innerHTML='<font class="tips_true">输入正确</font>';
@@ -88,7 +88,7 @@
 			var flagZM=false ;
 			var flagSZ=false ; 
 			var flagQT=false ;
-			if(psd1.length<6 || psd1.length>12){   
+			if(psd1.length<6 || psd1.length>40){   
 				divpassword1.innerHTML='<font class="tips_false">长度错误</font>';
 			}else
 				{   
@@ -124,11 +124,11 @@
 			<ul>
 				<li>
 					<label>用户名：</label>
-					<input type="text" name="yourname" placeholder="请输入用户名"  onblur="checkna()" required/><span class="tips" id="divname">长度1~12个字符</span>
+					<input type="text" name="yourname" maxlength="20" placeholder="请输入用户名"  onblur="checkna()" required/><span class="tips" id="divname">长度6~20个字符</span>
 				</li>
 				<li>
 					<label>密码：</label>
-					<input type="password" name="yourpass" placeholder="请输入你的密码" onBlur="checkpsd1()" required/><span class="tips" id="divpassword1">密码必须由字母和数字组成</span>
+					<input type="password" name="yourpass" maxlength="40" placeholder="请输入你的密码" onBlur="checkpsd1()" required/><span class="tips" id="divpassword1">密码必须由字母和数字组成</span>
 				</li>
 			
 						</ul>

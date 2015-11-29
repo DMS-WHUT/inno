@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '111111';
+$db['default']['hostname'] = '202.103.30.107';
+$db['default']['username'] = 'inno';
+$db['default']['password'] = 'n7i5p2s6z3';
 $db['default']['database'] = 'inno';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

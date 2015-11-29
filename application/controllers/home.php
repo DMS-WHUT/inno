@@ -86,14 +86,54 @@
 	 public function sign(){
 			
 			
+			 
 			 $data=array();
-			 if(isset($_POST['yourname'])&&isset($_POST['yourpass'])&&isset($_POST['youremail']))
+			 if(isset($_POST['yourname'])&&isset($_POST['yourpass'])&&isset($_POST['youremail'])&&isset($_POST['yourpass2']))
 			 		{
-						$data['username']=$_POST['yourname'];
-						$data['password']=sha1($_POST['yourpass']);
+							$data['username']=$_POST['yourname'];
+						$data['password']=$_POST['yourpass'];
+
+						$data['password2']=$_POST['yourpass2'];
 						$data['email']=$_POST['youremail'];
 						$data['si_time']=date('Y-m-d H:i:s');
 						$this->load->model('mhome');
+
+						//验证用户名和密码的合法性
+						 function info_check($username,$pass,$pass2,$email){
+								//验证邮箱
+										if(!preg_match('^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]^',$email)){
+												return false;
+										}else if($pass != $pass2){
+												return false;
+										}else if(strlen($pass)<6||strlen($pass)>20){
+												return false;
+										}else if(!preg_match('^[a-z0-9_\.\-]^',$pass)){
+												return false;
+										}else if(strlen($username)<6||strlen($username)>20){
+												return false;
+										}else if(!preg_match('^[a-zA-Z0-9_]^',$username)){
+												return false;
+										}else{
+												return true;
+										}
+										
+						}
+
+						$data['info']=info_check($data['username'],$data['password'],$data['password2'],$data['email']);
+
+						if(!$data['info']){
+								echo "<script>alert('无效的输入,请重新注册')</script>";
+								echo "<META HTTP-EQUIV='Refresh' CONTENT='5;URL=/inno/index.php/home/sign'>";
+								exit;
+	
+						}
+
+
+				
+
+						//开始注册
+						
+						$data['password']=sha1($_POST['yourpass']);
 
 						if($this->mhome->check($data['username']))
 						{
