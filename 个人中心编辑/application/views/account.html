@@ -1,3 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title><?php echo $page_title ?> -依诺维特</title>
+
+    <link href="/inno/css/tabcontent.css" rel="stylesheet" type="text/css" />
+    <link href="/inno/css/templatemo_style.css"  rel="stylesheet" type="text/css" />
+    <link href="/inno/css/orimscfile.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/account.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/inno/js/tabcontent.js"></script>
+</head>
+<body>
+<div id="templatemo_container">
+    <div id="templatemo_top_panel">
+        <a href='/inno/index.php/home'>
+            <div id="templatemo_sitetitle">
+                依诺维特|Innovate
+            </div>
+        </a>
+
+        <div id="templatemo_searchbox">
+            <form action="#" method="get">
+                <input name="search" type="radio" value="thissite" checked="checked" />
+                this site <input type="radio" name="search" value="theweb" />
+                the web <br />
+                <input type="text" name="q" size="10" id="searchfield" title="searchfield" />
+                <input type="submit" name="Search" value="搜索" alt="Search" id="searchbutton" title="Search" />
+            </form>
+        </div>
+        <div id="templatemo_account">
+            <p>欢迎你!
+                <?php
+		if($check){
+				?>	<a id="bnfa" href="/inno/index.php/home/account"><? echo $user;  echo "</a>";?><a id="abc" href="/inno/index.php/home/log_out">退出</a
+                        ><? } else { ?>
+                    <a id="bnfa" href="/inno/index.php/home/log_in">请登录</a>  <?php }?>
+            </p>
+        </div>
+        <div id="templatemo_currentdate">
+            <script type="text/javascript">
+                <!--
+                var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+                var d_names = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+
+                var currentTime = new Date()
+                var day = currentTime.getDay()
+                var month = currentTime.getMonth() + 1
+                var date = currentTime.getDate()
+                var year = currentTime.getFullYear()
+                document.write( d_names[day] + ", " + date + " " + m_names[month] + " " + year + ", ")
+                var currentTime = new Date()
+                var hours = currentTime.getHours()
+                var minutes = currentTime.getMinutes()
+                if (minutes < 10){
+                    minutes = "0" + minutes
+                }
+                document.write(hours + ":" + minutes + " ")
+                if(hours > 11){
+                    document.write("PM")
+                } else {
+                    document.write("AM")
+                }
+                //-->
+            </script>
+        </div>
+    </div> <!-- end of top panel -->
+
+    <div id="templatemo_menu">
+        <ul>
+            <li><a href="/inno/index.php/home"  class="current">首页</a></li>
+
+            <li><a href="/inno/index.php/orimsc">原创音乐</a></li>
+            <li><a href="/inno/index.php/digspace">数字空间</a></li>
+            <li><a href="/inno/index.php/contest">创意竞赛</a></li>
+            <li><a href="/inno/index.php/digdoctor">数字中医</a></li>
+            <li><a href="http://www.ourinnovate.com">学术交流</a></li>
+            <!--   <li><a href="/inno/index.php/science">Tech &amp; Science</a></li>
+               -->
+            <li><a href="/Discuz_3.0">论坛</a></li>
+        </ul>
+        <div align="right" >
+            <a href="http://www.amazingcounters.com">
+                <span style="color: white;font-size: 14px;float: right;margin-right: 70px;margin-top: 5px">网站访问量：</span>
+                <span style="height: 20px; float: right;margin-right: 5px;margin-top: -18px;color: white" ><img height="20px" src="http://cc.amazingcounters.com/counter.php?i=3196404&c=9589525" alt="AmazingCounters.com" ></span>
+            </a>
+        </div>
+    </div>
+
 
 <!--个人中心-->
 <center>
@@ -162,7 +253,7 @@
     //--></script>
 
     <!--修改地区-->
-    <script src="/inno/js/changeArea.js"></script>
+    <script src="../../js/changeArea.js"></script>
     <!--检查邮箱格式-->
     <script type="text/javascript">
         function ischeckemail(){
@@ -179,9 +270,9 @@
         }
     </script>
     <!--上传图片-->
-    <link rel="stylesheet" href="/inno/css/imgcut.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/imgcut.css" type="text/css" />
     <script type="text/javascript" src="http://www.lanrenzhijia.com/ajaxjs/1.7.1/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="/inno/js/jquery.Jcrop.js"></script>
+    <script type="text/javascript" src="../../js/jquery.Jcrop.js"></script>
     <script type="text/javascript">
 
         $(document).ready(function(){
@@ -306,46 +397,35 @@
     <div class="account">
         <hr/>
         <h1>个人中心</h1>
-		<?foreach($profile as $row):?>
-
-
-<?php if($row->sex=="1")
-			{
-					$gender="男";
-			}else{
-					$gender="女";
-			}
-?>
         <div class="account_info">
             <div class="account_img" onmouseover="show_edit_img()" onmouseout="hide_edit_img()">
-			<img src="/inno/photos/<?=$row->photo?>" id="user_img">
-                <img src="/inno/images/edit.png" id="edit_pic" onclick="open_edit_pic()">
+                <img src="../../images/touxiang.jpg" id="user_img">
+                <img src="../../images/edit.png" id="edit_pic" onclick="open_edit_pic()">
             </div>
 
             <div class="account_basic_info" onmouseover="show_edit_info()" onmouseout="hide_edit_info()">
-			<span id="user_name"><?=$row->realname?></span>
-                <img src="/inno/images/edit.png" id="edit_info" onclick="open_edit_info()">
+                <span id="user_name">张XX</span>
+                <img src="../../images/edit.png" id="edit_info" onclick="open_edit_info()">
                 <p>
-				<span id="account_area"><?=$row->city?></span>
+                    <span id="account_area">湖北武汉</span>
                     <span>&nbsp;|&nbsp;</span>
-					<span id="account_sex"><? echo $gender;?></span>
+                    <span id="account_sex">男</span>
                     <span>&nbsp;|&nbsp;</span>
-					<span id="account_birth"><?=$row->birthday?></span>
+                    <span id="account_birth">1995-12-30</span>
                     <span>&nbsp;|&nbsp;</span>
-					<span id="account_email"><?=$row->email?></span>
+                    <span id="account_email">409290014@qq.com</span>
                 </p>
                 <hr/>
                 <div class="account_label">
                     <span>个性签名：</span>
-					<span  id="personal_label"><?=$row->signature?></span>
+                    <span  id="personal_label">每一个不曾起舞的日子，都是对生命的辜负！</span>
 
                 </div>
 
 
             </div>
 
-		</div>
-		<?endforeach;?>
+        </div>
         <div class="account_attr">
             <ul id="section_title">
                 <li class="user_section" onclick="change_section('dongtai',this)" style="background-color: white">我的动态</li>
@@ -383,7 +463,7 @@
             <div style="position: absolute;left: 1040px;top: 120px ">
                 <input type="button" value="X" onClick="close_edit_pic()" style="cursor: hand; background-color: transparent;border: none;">
             </div>
-            <iframe src="/inno/imgcut/index.html" style="width: 100%;height: 100%;border: none">
+            <iframe src="../../imgcut/index.html" style="width: 100%;height: 100%;border: none">
                 </iframe>
         </div>
 
@@ -449,3 +529,44 @@
 </center>
 
 
+    <center>
+
+        <div id="templatemo_footer">
+            <div class="footer_leftcol">
+                Copyright © 2005 <a href="#"><strong>武汉理工大学数字制造科学编辑部</strong></a> - from <a href="/inno/index.php/home" target="_parent">Full Media</a><br /><br />
+                <p>地址：武汉市武昌珞狮路205号116信箱  邮政编码： 430070  </p>
+                <p>          E-mail： dms@whut.edu.cn</p>
+            </div>
+            <div class="footer_rightcol">
+                <div class="footer_subcol">
+                    <a href="#">Mainpage</a><br />
+                    <a href="#">Company</a><br />
+                    <a href="#">Advertise</a><br />
+                    <a href="#">Feedback</a><br />
+                    <a href="#">About us</a>
+                </div>
+                <div class="footer_subcol">
+                    <a href="#">English</a><br />
+                    <a href="#">Japanese</a><br />
+                    <a href="#">Chinese</a><br />
+                    <a href="#">German</a><br />
+                    <a href="#">French</a>
+                </div>
+                <div class="footer_subcol">
+                    <a href="#">Terms</a><br />
+                    <a href="#">Privacy</a><br />
+                    <a href="#">Sitemap</a><br />
+                    <a href="#">Contact</a><br />
+                    <a href="#">Help</a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </center>
+</div>
+
+</body>
+</html>
+<link href="../../css/account.css" rel="stylesheet" type="text/css">

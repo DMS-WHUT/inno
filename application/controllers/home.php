@@ -94,7 +94,7 @@
 
 			 { setcookie("user",$data['username'],time()+3600,"/inno/");
 			 setcookie("user_id",$user_id,time()+3600,"/inno/");
-
+			 
 				$url="http:/inno/index.php/home";	
 			 	Header("Location:$url");
 			 }else{
@@ -246,10 +246,14 @@
 
 			 if(isset($_COOKIE['user_id'])){
 
+			 $data['id']=$_COOKIE['user_id'];
 			 $this->load->model('mhome');
 
-			 $data['profile']=$this->mhome->get_profile($_COOKIE['user_id']);
-			 $data['voices']=$this->mhome->get_voice($_COOKIE['user_id']);
+			 $data['profile']=$this->mhome->get_profile($data['id']);
+			 $data['voices']=$this->mhome->get_voice($data['id']);
+			 echo $data['id'];
+			 print_r($data['profile']);
+			 
 
 
 		   	 $this->load->view('header',$data); 

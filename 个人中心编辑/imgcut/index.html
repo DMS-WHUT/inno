@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jcrop_js实现新浪微博头像上传截图功能</title>
+	<link rel="stylesheet" href="css/imgcut.css" type="text/css" />
+	<script type="text/javascript" src="http://www.lanrenzhijia.com/ajaxjs/1.7.1/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.Jcrop.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			function isImageFile(file) {
+				if (file.type) {
+					return /^image\/\w+$/.test(file.type);
+				} else {
+					return /\.(jpg|jpeg|png|gif)$/.test(file);
+				}
+			}
+
+			$("#selectImg").click(function() {
+				return $("#imgOne").click();
+			});
+			$("#imgOne").change(function() {
+				var files, file;
+				files = $(this).prop('files');
+
+				if (files.length > 0) {
+					file = files[0];
+					if (isImageFile(file)) {
+						var imgsrc = getFileUrl("imgOne");
+						$(".jcrop-holder img, #crop_preview,#bPic").attr("src", imgsrc);
+						$(".jcrop-holder img").css("height","auto");
+						$(".jcrop-holder img").css("width","500px");
+						var img=document.createElement("img");
+						img.src=imgsrc;
+
+						window.setTimeout(function() {
+                            if (img.width < 500) {
+                                $(".jcrop-holder img").css("height", "auto");
+                                $(".jcrop-holder img").css("width", img.width);
+                                $(".jcrop-holder").css("width", img.width);
+                                $(".jcrop-holder").css("height", img.height);
+                                $(".jcrop-tracker").css("width", img.width);
+                                $(".jcrop-tracker").css("height", img.height);
+                                $("#bPic").css("width", img.width);
+//                                jcropApi.setWidgetSize(img.width,img.height);
+                                $("#bPic").Jcrop({
+                                    onChange: showPreview,
+                                    onSelect: showPreview,
+                                    aspectRatio: 1
+                                });
+                            }
+                            else if (img.width >= 500) {
+                                $(".jcrop-holder img").css("width", "500px");
+                                $(".jcrop-holder img").css("height", "auto");
+                                $(".jcrop-holder").css("width", "500px");
+                                $(".jcrop-holder").css("height", 500*img.height/img.width);
+                                $(".jcrop-tracker").css("width", "500px");
+                                $(".jcrop-tracker").css("height", 500*img.height/img.width);
+                                $("#bPic").css("width", "500px");
+                                $("#bPic").Jcrop({
+                                    onChange: showPreview,
+                                    onSelect: showPreview,
+                                    aspectRatio: 1
+                                });
+                            }
+                        },100);
+					} else {
+						alert("请选择有效的图片文件！");
+						return false;
+					}
+				}
+				$("#upfile").val($(this).val());
+			});
+
+			//记得放在jQuery(window).load(...)内调用，否则Jcrop无法正确初始化
+            $("#bPic").Jcrop({
+                onChange: showPreview,
+                onSelect: showPreview,
+                aspectRatio: 1
+            });
+
+			//简单的事件处理程序，响应自onChange,onSelect事件，按照上面的Jcrop调用
+			function showPreview(coords){
+				if(parseInt(coords.w) > 0){
+					//计算预览区域图片缩放的比例，通过计算显示区域的宽度(与高度)与剪裁的宽度(与高度)之比得到
+					var rx = $("#preview_box").width() / coords.w;
+					var ry = $("#preview_box").height() / coords.h;
+					//通过比例值控制图片的样式与显示
+					$("#crop_preview").css({
+						width:Math.round(rx * $("#bPic").width()) + "px",	//预览图片宽度为计算比例值与原图片宽度的乘积
+						height:Math.round(rx * $("#bPic").height()) + "px",	//预览图片高度为计算比例值与原图片高度的乘积
+						marginLeft:"-" + Math.round(rx * coords.x) + "px",
+						marginTop:"-" + Math.round(ry * coords.y) + "px"
+					});
+				}
+			}
+		});
+	</script>
+
+	<script type="text/javascript">
+		/**
+		 * 从 file 域获取 本地图片 url
+		 */
+		function getFileUrl(sourceId) {
+			var url;
+			if (navigator.userAgent.indexOf("MSIE")>=1) { // IE
+				url = document.getElementById(sourceId).value;
+			} else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox
+				url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+			} else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome
+				url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+			}
+			return url;
+		}
+
+		/**
+		 * 将本地图片 显示到浏览器上
+		 */
+		function preImg(sourceId, targetId) {
+			var url = getFileUrl(sourceId);
+			var imgPre = document.getElementById(targetId);
+			imgPre.src = url;
+
+			document.getElementById("crop_preview").src=url;
+		}
+
+	</script>
+
+</head>
+<body>
+<form action="#" method="post">
+	<div class="box-imgcut">
+		<input type="button" id="selectImg" value="选择照片" >
+		<input type="text" szie="20" name="upfile" id="upfile" >
+		<input type="file" name="imgOne" id="imgOne" >
+		<div style="float: right;margin-right: 50px;margin-top: 10px">
+			<input type="submit" id="btnSave" value="保存" >
+		</div>
+		<div class="part01-jscrop">
+			<img style="width:500px" id="bPic" src="images/originimg.jpg" />
+			<span id="preview_box" class="crop_preview"><img id="crop_preview" src="images/originimg.jpg" /></span>
+		</div>
+	</div>
+</form>
+</body>
+</html>

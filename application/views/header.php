@@ -100,4 +100,12 @@
 			-->
              <li><a href="/Discuz_3.0">论坛</a></li>            
         </ul> 
-	</div>
+     <div align="right" >
+            <a href="http://www.amazingcounters.com">
+                <span style="color: white;font-size: 14px;float: right;margin-right: 70px;margin-top: 5px">网站访问量：</span>
+                <span style="height: 20px; float: right;margin-right: 5px;margin-top: -18px;color: white" ><img height="20px" src="http://cc.amazingcounters.com/counter.php?i=3196404&c=9589525" alt="AmazingCounters.com" ></span>
+            </a>
+        </div>
+    </div>
+
+
