@@ -71,14 +71,10 @@
                         
                     <ul>
 						<? foreach ($voice as $row):?>
-						<li><a href="/inno/voice/<?=$row->name?>"><?=$row->name?></a>-<?=$row->time?></li>
+						<li><a href="/inno/recorder/audio/<?=$row->name?>"><?=$row->name?></a>-<?=$row->user_name?></li>
 						<? endforeach;?>
-                        <li><a href="/inno/voice/whistle.mp3">whistle</a></li>
-                        <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                        <li><a href="#">Maecenas adipiscing elementum ipsum</a></li>
-                        <li><a href="#">Nunc blandit orci sit amet risus</a></li>
-                        <li><a href="#">Cum sociis natoque penatibus et magnis dis</a></li>
                     </ul>
+
 				
             </div>
 

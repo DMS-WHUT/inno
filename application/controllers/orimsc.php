@@ -32,18 +32,37 @@
 		{
 				$data=array();
 				$data['page_title'] = "钢琴";
+				
+				//验证登录
+				if(!isset($_COOKIE['user_id'])||!isset($_COOKIE['user'])){
+						echo "<script>alert('您需要登录!')</script>";
+						echo "<META HTTP-EQUIV='Refresh' CONTENT='0,URL=/inno/index.php/home/log_in'>";
+				}else{
+
+
+
 				$this->load->view('header',$data);
 				$this->load->view('piano',$data);
 				$this->load->view('footer',$data);
+				}
 		}
   
 		function guitar()
 		{
 				$data=array();
 				$data['page_title']="吉他";
+		//验证登录
+				if(!isset($_COOKIE['user_id'])||!isset($_COOKIE['user'])){
+						echo "<script>alert('您需要登录!')</script>";
+						echo "<META HTTP-EQUIV='Refresh' CONTENT='0,URL=/inno/index.php/home/log_in'>";
+				}else{
+
+
+
 				$this->load->view('header',$data);
 				$this->load->view('guitar',$data);
 				$this->load->view('footer',$data);
+				}
 		}
   
 		function drum()

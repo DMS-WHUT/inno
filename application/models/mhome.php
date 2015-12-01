@@ -99,7 +99,7 @@
 
 			function get_voice($id=FALSE){
 					if($id===FALSE){
-					$query=$this->db->query("select * from voice"); 
+					$query=$this->db->query("select * from voice order by id desc"); 
 					return $query->result();
 					}else{
 					$query=$this->db->query("select * from voice where user_id='.$id.'");		
@@ -109,6 +109,16 @@
 			}
 
 
+			function up_voice($id,$name){
+					$time = date('Y-m-d H:i:s');
+					if(isset($id)&&isset($name)){
+							$query = $this->db->query("insert into voice values(NULL,'.$id.','.$name.','.$time.')");
+							return $query;
+
+					}
+
+
+			}
 
 
 
